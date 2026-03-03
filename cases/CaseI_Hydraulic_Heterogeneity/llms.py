@@ -1,11 +1,20 @@
+# -*- coding: utf-8 -*-
 import os
 
-V3 = "deepseek-chat"
-R1 = "deepseek-reasoner"
+"""
+Configuration for LLM agents.
+Ensure the OPENAI_API_KEY is set in your system environment variables.
+"""
+
+MY_API_KEY = os.getenv("OPENAI_API_KEY")
+MY_BASE_URL = "https://api.vectorengine.ai/v1"
+
+if MY_API_KEY is None:
+    raise EnvironmentError("OPENAI_API_KEY not found in environment variables.")
 
 config_list = [
     {
-        "model": "deepseek-chat",
+        "model": "deepseek-chat", 
         "base_url": MY_BASE_URL,
         "api_key": MY_API_KEY,
         "api_type": "openai",
@@ -18,5 +27,4 @@ llm_config = {
     "temperature": 0,
     "config_list": config_list,
     "timeout": 600,
-    "cache_seed": None
 }

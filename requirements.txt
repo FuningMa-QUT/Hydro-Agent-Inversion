@@ -1,0 +1,19 @@
+# --- Core Agent Framework ---
+autogen==0.7.5
+autogen-agentchat==0.5.7
+autogen-core==0.5.7
+autogen-ext==0.5.7
+
+# --- Numerical and Data Processing ---
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.12.0
+scikit-learn==1.4.0
+
+# --- File I/O and Visualization ---
+openpyxl==3.1.2
+matplotlib==3.8.3
+
+# --- LLM API Support ---
+openai==1.52.0
+python-dotenv==1.0.1

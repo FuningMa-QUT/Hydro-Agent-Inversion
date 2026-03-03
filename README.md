@@ -1,7 +1,19 @@
-# Hydro-Agent-Inversion
-Hydro-Agent is an autonomous framework designed to bridge the gap between conceptual hydrogeological hypotheses and rigorous numerical implementation. By leveraging Large Language Models (LLMs) as reasoning engines and the "code-as-policy" paradigm, Hydro-Agent orchestrates physics-based simulators (e.g., MODFLOW, TOUGHREACT) to perform complex inverse modeling tasks.
-This repository is part of the supplementary material for the manuscript: "Autonomous inverse modeling of complex groundwater systems via a physics-integrated large language model multi-agent framework".
-Key Features
-Physics-Integrated Reasoning: Directly interfaces with numerical simulators to ensure mass conservation and thermodynamic consistency.
-Autonomous Debugging: Features a self-correcting "HydroCoder" that handles numerical instabilities and interface errors.
-Explainable AI: Generates real-time execution logs that translate numerical results into mechanistic insights.
+**Hydro-Agent: Autonomous Inverse Modeling via Physics-Integrated LLM Agents**
+This project provides Hydro-Agent, a physics-integrated multi-agent framework that leverages Large Language Models (LLMs) to automate groundwater inverse modeling and reactive transport calibration.
+**🚀 Quick Navigation (For Reviewers)**
+To facilitate the peer-review process, the following files provide the raw evidence for the qualitative reasoning and autonomous behavior discussed in the manuscript.
+Full Execution Logs:Located at: outputs_and_logs
+Contains the step-by-step decision-making process, prompt history, and autonomous code debugging logs.
+**🛠️ Requirements**
+Python 3.11 is highly recommended.
+Dependencies are listed in requirements.txt.
+**LLM Configuration**
+This project uses LLMs (e.g., GPT-4o, DeepSeek) as reasoning engines. You must configure your own API key as a global environment variable:
+export OPENAI_API_KEY='your-api-key-here'
+**📂 Project Structure**
+src/: Core logic of Hydro-Agent, including HydroCoder (autonomous code generator) and LogicRefiner.
+cases/: Implementation scripts for Case I (Heterogeneity), Case II (Kinetics), and Case III (Aquia Aquifer).
+outputs_and_logs/: Raw logs and generated reports demonstrating the agent's "semantic comprehension."
+**📖 Citation**
+If you use this project in your research, please cite:
+Ma, F., Chen, J., Dai, Z., Cai, F., & Hu, Y. (2026). Autonomous inverse modeling of complex groundwater systems via a physics-integrated large language model multi-agent framework. Water Research.

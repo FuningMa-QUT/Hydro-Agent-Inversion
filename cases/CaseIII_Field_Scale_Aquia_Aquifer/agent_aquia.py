@@ -59,35 +59,24 @@ The optimizer provides a list `x`. Map them strictly to this dictionary:
 17. 'CB_HCO3' : x[16] Range: [1e-3, 7e-3]
 18. 'CEC'     : x[17] Range: [1.0, 6.0]
 
-### CODING REQUIREMENTS
-Write a COMPLETE Python script using `scipy.optimize.differential_evolution`.
+### YOUR STRATEGY (AUTONOMOUS SELECTION)
+1. **Analyze the Problem**: 18 parameters make the surface highly dimensional and potentially full of local minima.
+2. **Algorithm Selection**: Choose the most robust algorithm from `scipy.optimize`. 
+   - You may consider `differential_evolution` for global search, `dual_annealing`, or `SHGO`.
+   - You may also implement a hybrid strategy (e.g., a global optimizer followed by a local `L-BFGS-B` polish).
+   - Briefly print the reason for your choice in the script.
+3. **Hyperparameter Tuning**: Dynamically set `maxiter`, `popsize`, `tol`, and other settings. 
+   - *Note*: Ensure the total number of evaluations is reasonable but sufficient to reach the target RMSE < 0.05.
 
+### CODING REQUIREMENTS
 1. **INTERFACE**: 
    - `from interface_aquia import run_simulation`
    - `import numpy as np`
-
-2. **GLOBAL COUNTER**:
-   - Use a global variable `eval_count = 0` to track simulations.
-
-3. **OBJECTIVE FUNCTION**:
-   - Convert `x` to `params` dict.
-   - **UNPACKING**: The interface returns `(None, mse, mae)`.
-   - Code: `_, mse, _ = run_simulation(params)`
-   - Calculate RMSE: `rmse = np.sqrt(mse)`
-   - **PRINTING**: `print(f"Eval {eval_count}: RMSE: {rmse:.4e}", flush=True)`
-   - Return `rmse`.
-
-4. **STOPPING CRITERIA**:
-   - Define a `callback(xk, convergence)`.
-   - If RMSE < 0.05 (Target), return True.
-
-5. **SETTINGS**:
-   - `strategy='best1bin'`
-   - `maxiter=100`
-   - `popsize=6`  (Note: 18 params * 6 = 108 runs per generation. This is balanced.)
-   - `disp=True`
-   - `polish=True`
-
+2. **OBJECTIVE FUNCTION**:
+   - MUST convert the NumPy array `x` to the dictionary `params` before calling `run_simulation(params)`.
+   - The interface returns `(None, mse, mae)`. Calculate `rmse = np.sqrt(mse)`.
+   - MUST print progress: `print(f"Eval {count}: RMSE: {rmse:.4e}")`.
+3. **FAILSAFE**: If simulation returns high MSE (9999), return a large penalty value.
 ### FINAL OUTPUT FORMAT
 Print "=== OPTIMIZATION RESULT ===" followed by all parameters and the Final RMSE.
 """

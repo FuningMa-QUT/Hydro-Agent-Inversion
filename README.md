@@ -33,4 +33,4 @@ outputs_and_logs/: Raw logs and generated reports demonstrating the agent's "sem
 **📖 Citation**
 If you use this project in your research, please cite:
 
-Ma, F., Chen, J., Dai, Z., Cai, F., & Hu, Y. (2026). Autonomous inverse modeling of complex groundwater systems via a physics-integrated large language model multi-agent framework. Water Research.
+Ma, F., Chen, J., Dai, Z., Cai, F., & Hu, Y. Autonomous inverse modeling of complex groundwater systems via a physics-integrated large language model multi-agent framework[J]. Water Research, 2026: 125886.
